@@ -6,7 +6,20 @@ The model uses the [UCI Auto MPG dataset](https://archive.ics.uci.edu/dataset/9/
 
 ## Architecture
 
-![img.png](img.png)
+```mermaid
+flowchart LR
+    RAW[UCI raw CSV] --> DE[Airflow: data engineering]
+    DE --> TRAIN[(train.csv)]
+    DE --> TEST[(test.csv)]
+    TRAIN --> ME[Airflow: model engineering]
+    TEST --> ME
+    ME --> MODEL[(model.joblib)]
+    ME --> METRICS[(metrics.json + MLflow)]
+    MODEL --> DEPLOY[Airflow: Docker Compose deploy]
+    DEPLOY --> API[FastAPI container :8000]
+    DEPLOY --> UI[Streamlit container :8501]
+    UI -->|HTTP /predict| API
+```
 
 The Airflow DAG runs `preprocess_data -> train_and_evaluate -> deploy_api_and_app` every five minutes. `catchup=False` and `max_active_runs=1` prevent backlog and overlapping deployments.
 
