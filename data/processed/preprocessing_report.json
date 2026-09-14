@@ -1,0 +1,45 @@
+{
+  "input_rows": 398,
+  "duplicate_rows_removed": 0,
+  "train_rows": 303,
+  "test_rows": 80,
+  "train_outliers_removed": 15,
+  "missing_values_after_cleaning": 0,
+  "random_state": 42,
+  "test_size": 0.2,
+  "imputation_medians": {
+    "cylinders": 4.0,
+    "displacement": 148.5,
+    "horsepower": 92.0,
+    "weight": 2822.5,
+    "acceleration": 15.5,
+    "model_year": 76.0
+  },
+  "outlier_bounds": {
+    "cylinders": {
+      "lower": 1.0,
+      "upper": 9.0
+    },
+    "displacement": {
+      "lower": -143.0,
+      "upper": 501.0
+    },
+    "horsepower": {
+      "lower": 8.125,
+      "upper": 187.125
+    },
+    "weight": {
+      "lower": 154.125,
+      "upper": 5663.125
+    },
+    "acceleration": {
+      "lower": 8.8,
+      "upper": 22.400000000000002
+    },
+    "model_year": {
+      "lower": 64.0,
+      "upper": 88.0
+    }
+  },
+  "outlier_policy": "IQR filtering on training rows only; test set remains unbiased"
+}

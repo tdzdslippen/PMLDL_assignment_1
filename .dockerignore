@@ -1,0 +1,13 @@
+.airflow-venv
+.git
+.pytest_cache
+.venv
+__pycache__
+*.pyc
+mlflow.db
+mlruns
+services/airflow/airflow.cfg
+services/airflow/airflow.db
+services/airflow/logs
+tests
+
