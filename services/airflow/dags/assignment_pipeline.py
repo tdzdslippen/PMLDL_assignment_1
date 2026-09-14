@@ -3,6 +3,7 @@
 import os
 import sys
 from datetime import datetime, timedelta
+from getpass import getuser
 from pathlib import Path
 
 from airflow import DAG
@@ -23,6 +24,7 @@ with DAG(
     max_active_runs=1,
     default_args={
         "owner": "pmldl-student",
+        "run_as_user": getuser(),
         "retries": 1,
         "retry_delay": timedelta(minutes=1),
     },

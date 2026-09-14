@@ -26,4 +26,4 @@ airflow-init:
 	AIRFLOW_HOME=$(CURDIR)/services/airflow $(AIRFLOW_PYTHON) -m airflow users create --username admin --password admin --firstname PMLDL --lastname Student --role Admin --email student@example.com
 
 airflow:
-	AIRFLOW_HOME=$(CURDIR)/services/airflow PIPELINE_PYTHON=$(CURDIR)/$(PYTHON) $(AIRFLOW_PYTHON) -m airflow standalone
+	PATH=$(CURDIR)/.airflow-venv/bin:$(PATH) AIRFLOW_HOME=$(CURDIR)/services/airflow PIPELINE_PYTHON=$(CURDIR)/$(PYTHON) $(AIRFLOW_PYTHON) -m airflow standalone
