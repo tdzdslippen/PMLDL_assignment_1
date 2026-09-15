@@ -11,3 +11,5 @@ services/airflow/logs/
 services/airflow/airflow.db
 services/airflow/airflow.cfg
 services/airflow/webserver_config.py
+services/airflow/standalone_admin_password.txt
+services/airflow/*.pid

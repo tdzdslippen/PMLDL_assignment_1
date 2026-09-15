@@ -115,6 +115,14 @@ make airflow
 
 Open <http://localhost:8080>, sign in with `admin` / `admin`, enable `pmldl_assignment_1`, and trigger the first run. After that, the DAG runs every five minutes. The Airflow process must have permission to access the local Docker daemon because the deployment task invokes Docker Compose.
 
+When started through `make airflow`, the deployment task uses alternate host ports to avoid conflicts with other local services:
+
+- Streamlit app: <http://localhost:18501>
+- FastAPI Swagger UI: <http://localhost:18000/docs>
+- API health: <http://localhost:18000/health>
+
+The `8501` and `8000` addresses from the previous section apply only to the separate manual `make deploy` command.
+
 For a clean demonstration, show a successful DAG graph, `models/metrics.json`, two running containers, `/docs`, and a prediction submitted through Streamlit.
 
 ## Reproducibility and operational notes
